@@ -23,14 +23,8 @@
       </a>
     </div>
   </header>
+
   <main class="container">
-
-    <dif class="search">
-      <form action = "/search" class = "search__form">
-        <input type="searsh" class="search__input" name="s">
-      </form>
-    </dif>
-
     <section class="items">
       <div class="items__item item item--post">
         <div class="item__top">
@@ -38,7 +32,7 @@
             <div class="item__ava-wrap">
               <img src="{{ post.poster_avatar }}" alt="" class="item__ava" width="47">
             </div>
-            <span class="item__username">{{ post.poster_name }}</span>
+            <span class="item__username">Username</span>
           </a>
           <button type="button" class="item__bookmark-btn">
             <img src="../static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
@@ -49,21 +43,21 @@
         </a>
         <div class="item__descr">
           <p class="item__text">
-            {{ post.content }}
+            {{ post.content}}
           </p>
-          </div>
+        </div>
         <div class="item__bottom">
           <div class="item__post-info">
-            <p class="item__comments-counter">{{ comments | count }}комментария</p>
+            <p class="item__comments-counter">{{ comments | count }} комментария </p>
             <div class="item__counter">
               <img src="../static/img/eye.png" alt="" class="item__counter-icon" width="26">
               <span class="item__counter-text">{{ post.views_count }}</span>
             </div>
           </div>
           <div class="item__comments">
-            {% for comment in comments %}
+              {% for comment in comments %}
             <p class="item__comment">
-              <b>{{ comment.commenter_name }}</b> {{ comment.comment }}
+              <b>{{ comment.commenter_name }}:</b> {{ comment.comment }}
             </p>
             {% endfor %}
           </div>

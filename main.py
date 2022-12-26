@@ -5,39 +5,39 @@ from api.api import api_bp
 
 app = Flask(__name__)
 
-
+""" смотреть посты """
 @app.route("/")
 def view_posts():
-    posts = utils.load_post('pk')
+    posts = utils.load_posts('pk')
     return render_template('index.html', posts=posts)
 
-
+""" видеть пост """
 @app.route("/post/<int:pk>")
 def view_post(pk):
     post = utils.load_post(pk)
     comments = utils.load_comments(pk)
     return render_template('post.html', post=post, comments=comments)
 
-
+"""найти пользователя по имени или постам"""
 @app.route("/user/<user_name>")
 def search_post_by_user_name(user_name):
     posts = utils.load_posts(user_name=user_name)
     return render_template('index.html', posts=posts)
 
-
+""" найти посты """
 @app.route("/search/")
 def search_post():
     word = request.args.get('s', '').lower()
     posts = utils.load_posts(search_word=word)
     return render_template('index.html', posts=posts)
 
-
+""" сообщения из айпи """
 @app.route("/api/")
 def api_posts():
     posts = utils.load_posts()
     return jsonify(posts)
 
-
+""" ответ из айпи """
 @app.route("/api/post/<int:pk>")
 def api_post(pk):
     post = utils.load_post(pk)
