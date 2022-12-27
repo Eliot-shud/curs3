@@ -1,6 +1,6 @@
 import json
 
-# """загружает данные"""
+"""загружает данные"""
 
 
 def load_data(file_name):
@@ -9,7 +9,7 @@ def load_data(file_name):
     return data
 
 
-# """отображает посты юзеров """
+"""отображает посты юзеров """
 
 
 def load_posts(search_word=None, user_name=None):
@@ -21,11 +21,11 @@ def load_posts(search_word=None, user_name=None):
     return posts
 
 
-# """комментарии под посты """
+"""комментарии под посты """
 
 
 def load_comments(posts_pk):
-    all_comments = load_data("data/comments.json")
+    all_comments = load_data("/static/data/comments.json")
     comments = []
     for comment in all_comments:
         if comment["post_id"] == posts_pk:
@@ -33,7 +33,7 @@ def load_comments(posts_pk):
     return comments
 
 
-# """ пост юзера"""
+""" пост юзера"""
 
 
 def load_post(pk):
